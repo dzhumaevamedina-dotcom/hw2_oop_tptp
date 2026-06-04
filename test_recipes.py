@@ -103,7 +103,7 @@ def test_rem():
     assert len(arr.items) == 1     
     assert arr.items[0][1] == "Суп"  
 
-def test_get():
+def test1():
     arr = ShoppingList()
     arr.add_recipe(Recipe("Паста",[Ingredient("Мука", 50, "г"), Ingredient("Яйцо",1,"шт")]), 1)
     arr.add_recipe(Recipe("Пицца",[Ingredient("Мука", 100, "г")]), 1)
@@ -115,7 +115,7 @@ def test_get():
     assert res[1].name == "Яйцо"
     assert res[1].quantity == 1.0
 
-def test_sum():
+def test2():
     x1 = ShoppingList()
     x2 = ShoppingList()
     x1.add_recipe(Recipe("Пицца",[Ingredient("Мука", 100, "г")]), 1) 
