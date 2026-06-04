@@ -77,3 +77,49 @@ def test_str():
     rec.add_ingredient(Ingredient("Соль",10,"г"))
     expected = "Суп: Вода: 500.0 мл, Соль: 10.0 г"
     assert str(rec) == expected
+#я хочу спать
+
+#2.3
+import pytest
+from recipe import Ingredient,Recipe,ShoppingList
+
+def test_add():
+    arr = ShoppingList()
+    r = Recipe("Пицца", [Ingredient("Мука",100,"г")])
+    arr.add_recipe(r,2)
+    assert arr.items[0][0].quantity == 200.0
+
+def test_err():
+    arr = ShoppingList()
+    r = Recipe("Пицца", [])
+    with pytest.raises(ValueError):
+        arr.add_recipe(r,0)
+
+def test_rem():
+    arr = ShoppingList()
+    arr.add_recipe(Recipe("Пицца",[Ingredient("Мука", 100, "г")]), 1)
+    arr.add_recipe(Recipe("Суп",[Ingredient("Вода", 500, "мл")]), 1)
+    arr.remove_recipe("Пицца")
+    
+    assert len(arr.items) == 1     
+    assert arr.items[0][1] == "Суп"  
+
+def test_get():
+    arr = ShoppingList()
+    arr.add_recipe(Recipe("Паста",[Ingredient("Мука", 50, "г"), Ingredient("Яйцо",1,"шт")]), 1)
+    arr.add_recipe(Recipe("Пицца",[Ingredient("Мука", 100, "г")]), 1)
+    res = arr.get_list()
+
+    assert len(res) == 2
+    assert res[0].name == "Мука"    
+    assert res[0].quantity == 150.0   
+    assert res[1].name == "Яйцо"
+    assert res[1].quantity == 1.0
+
+def test_sum():
+    x1 = ShoppingList()
+    x2 = ShoppingList()
+    x1.add_recipe(Recipe("Пицца",[Ingredient("Мука", 100, "г")]), 1) 
+    x2.add_recipe(Recipe("Суп",[Ingredient("Вода", 500, "мл")]), 1)  
+    x3 = x1 + x2
+    assert len(x3.items) == 2 
