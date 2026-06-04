@@ -64,7 +64,6 @@ class Recipe:
         return self.title + ": " + ", ".join(mn)
     
 #1.3
-
 class ShoppingList:
     def __init__(self):
         self.items = []
@@ -102,3 +101,19 @@ class ShoppingList:
         res.items = self.items + obg.items
         return res
 
+#1.4
+class DietaryRecipe(Recipe):
+    def __init__(self,title,diet_type,ingredients = None):
+        if ingredients is None:
+            ingredients = []
+        super().__init__(title, ingredients)
+        self.diet_type = diet_type
+
+    def scale(self,ratio):
+        if not self.is_valid_ratio(ratio):
+            raise ValueError()
+        arr = super().scale(ratio)
+        return DietaryRecipe(self.title, self.diet_type, arr.ings)
+
+    def __str__(self):
+        return "[" + self.diet_type + "] " + super().__str__()
