@@ -5,13 +5,13 @@
 Проект для управления рецептами, масштабирования порций и формирования списка покупок.
 
 ## ИСПОЛЬЗОВАНИЕ:
-1)Перейдите в мой репозиторий по ссылке: https://github.com/dzhumaevamedina-dotcom/hw2_oop_tptp
+1. Перейдите в мой репозиторий по ссылке: https://github.com/dzhumaevamedina-dotcom/hw2_oop_tptp
 
-2)Перейдите в папку проекта: cd hw2_oop_tptp
+2. Перейдите в папку проекта: cd hw2_oop_tptp
 
-3)Установите зависимости: pip install -r requirements.txt
+3. Установите зависимости: pip install -r requirements.txt
 
-4)Запустите тесты: pytest test_recipes.py -v
+4. Запустите тесты: pytest test_recipes.py -v
 
 ## АВТОР:
 Джумаева Медина Муратовна,ББИ2506
