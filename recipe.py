@@ -20,7 +20,7 @@ class Ingredient:
         return f"{self.name}: {self.quantity} {self.unit}"
 
     def __repr__(self):
-        return f"Ingredient('{self.name}', {self.quantity}, '{self.unit}')"
+        return f"Ingredient('{self.name}',{self.quantity},'{self.unit}')"
 
     def __eq__(self, obg):
         if not isinstance(obg, Ingredient):
