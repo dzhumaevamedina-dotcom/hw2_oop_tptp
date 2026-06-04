@@ -77,7 +77,6 @@ def test_str():
     rec.add_ingredient(Ingredient("Соль",10,"г"))
     expected = "Суп: Вода: 500.0 мл, Соль: 10.0 г"
     assert str(rec) == expected
-#я хочу спать
 
 #2.3
 import pytest
